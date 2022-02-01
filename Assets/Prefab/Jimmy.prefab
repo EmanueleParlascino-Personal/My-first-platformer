@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 816035801323709645}
   - component: {fileID: 8281783998108513542}
   - component: {fileID: 4734956027360149891}
-  m_Layer: 0
+  - component: {fileID: 1692746100}
+  m_Layer: 8
   m_Name: Jimmy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +95,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1802611113
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 100
   m_Sprite: {fileID: 6474817916930609645, guid: 4f64643432e6cbe488fccd3175ff1eeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,4 +188,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  jumpForce: 15
+  jumpForce: 14
+  climbSpeed: 2
+--- !u!61 &1692746100
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215809872185959494}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0101591945, y: -0.4998312}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.56666666, y: 1.1333333}
+    newSize: {x: 0.17, y: 0.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.351292, y: 0.1336708}
+  m_EdgeRadius: 0
