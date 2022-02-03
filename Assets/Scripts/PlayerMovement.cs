@@ -12,14 +12,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float climbSpeed = 2f;
     [SerializeField] GameObject Enemy;
-    [SerializeField] GameObject DeathTransitionSquare; 
+    [SerializeField] GameObject Bullet;
+
+    [SerializeField] GameObject Gun;
     Animator myAnimator;
     BoxCollider2D feet;
     CapsuleCollider2D myCollider;
     CapsuleCollider2D enemyCollision;
 
     bool isAlive = true;
-    float transitionTime = 5;
+    float transitionTime;
 
     float startGravity;
     void Start()
@@ -36,15 +38,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) 
         {
-            while (transitionTime>0)
-            {
-                Color square = DeathTransitionSquare.GetComponent<SpriteRenderer>().color;
-
-                square = Color.black;    
-                square.a = transitionTime;
-                Debug.Log(square.a);
-                transitionTime-=1;
-            }
             return;
         }
         Run();
@@ -91,7 +84,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+    void OnFire(InputValue value)
+    {
+        if (!isAlive) {return;}
+        if(value.isPressed)
+        {
+            Instantiate(Bullet, Gun.transform.position, transform.rotation);
+            myAnimator.SetTrigger("Shoot");
+        }
+    }
 
     
 
@@ -117,21 +118,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Die");
             myRigidbody.gravityScale = 10;
-            myRigidbody.velocity += new Vector2(-jumpForce*2, jumpForce);
+            myRigidbody.velocity += new Vector2(-jumpForce, jumpForce);
             GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.22f);
-            //Physics.IgnoreLayerCollision(8, 10);
-            //Physics.IgnoreCollision(Enemy.GetComponent<CapsuleCollider2D>(), GetComponent<CapsuleCollider2D>());
         }
     }
 
-    void TransitionToBlack(int opacity)
-    {
-        
-    }
+    
     
 }
