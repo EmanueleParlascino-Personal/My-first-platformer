@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         ClimbLadder();
         Die();
+        myAnimator.SetBool("isIdle", true);
     }
 
     void FlipSprite()
@@ -81,15 +82,16 @@ public class PlayerMovement : MonoBehaviour
         if(value.isPressed && feet.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             myRigidbody.velocity += new Vector2(0, jumpForce);
+            myAnimator.SetTrigger("Jump");
         }
     }
 
     void OnFire(InputValue value)
     {
         if (!isAlive) {return;}
-        if(value.isPressed)
+        if (value.isPressed)
         {
-            Instantiate(Bullet, Gun.transform.position, transform.rotation);
+            Instantiate(Bullet, Gun.transform.position, transform.rotation );
             myAnimator.SetTrigger("Shoot");
         }
     }
