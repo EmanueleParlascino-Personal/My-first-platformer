@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3102077881551802627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.283, y: 0.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.69762886, w: 0.7164594}
+  m_LocalPosition: {x: 0.283, y: 0.099999905, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7215809872185959493}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -88.474}
 --- !u!1 &7215809872185959494
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 7215809872185959494}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f5752fbeacc0cd54baada4d1b689bd2a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -221,7 +221,9 @@ MonoBehaviour:
   playerSpeed: 5
   jumpForce: 14
   climbSpeed: 2
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 1838326791351380248, guid: ea1ae11c8d7027846afd9143d009fe8b, type: 3}
+  Bullet: {fileID: 7373386773336890298, guid: 2cbab417f55519c40b641749258d6ca4, type: 3}
+  Gun: {fileID: 3102077881551802627}
 --- !u!61 &1692746100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -231,8 +233,8 @@ BoxCollider2D:
   m_GameObject: {fileID: 7215809872185959494}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Material: {fileID: 6200000, guid: f5752fbeacc0cd54baada4d1b689bd2a, type: 2}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0101591945, y: -0.4998312}

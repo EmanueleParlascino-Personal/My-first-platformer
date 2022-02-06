@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) {return;}
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
     }
 
     void Run()
@@ -112,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody.velocity = playerVelocity;
         bool isMovingUp = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("isClimbing", isMovingUp);
-        myRigidbody.gravityScale = 0;
+        //myRigidbody.gravityScale = 0;
       
 
         
@@ -127,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.gravityScale = 10;
             myRigidbody.velocity += new Vector2(-jumpForce, jumpForce);
             GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.22f);
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
     }
 
