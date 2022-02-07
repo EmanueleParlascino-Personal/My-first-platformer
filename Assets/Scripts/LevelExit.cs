@@ -26,9 +26,10 @@ public class LevelExit : MonoBehaviour
     IEnumerator ExitLevel()
     {
 
-       yield return new WaitForSecondsRealtime(timeDelay);
+        yield return new WaitForSecondsRealtime(timeDelay);
 
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        FindObjectOfType<ScenePersist>().ResetScenePersist(); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     
