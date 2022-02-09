@@ -221,9 +221,10 @@ MonoBehaviour:
   playerSpeed: 5
   jumpForce: 14
   climbSpeed: 2
-  Enemy: {fileID: 1838326791351380248, guid: ea1ae11c8d7027846afd9143d009fe8b, type: 3}
+  Enemy: {fileID: 0}
   Bullet: {fileID: 7373386773336890298, guid: 2cbab417f55519c40b641749258d6ca4, type: 3}
   Gun: {fileID: 3102077881551802627}
+  deathSound: {fileID: 8300000, guid: 4ecf2aa0291219f4787e478122101746, type: 3}
 --- !u!61 &1692746100
 BoxCollider2D:
   m_ObjectHideFlags: 0

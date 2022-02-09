@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c344e5a3007d148b97791937fb7447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickSound: {fileID: 8300000, guid: fec3a890be2e090459a221365d3c1d55, type: 3}
+  pickSound: {fileID: 8300000, guid: 02b7f5bca965e3c48aa97943a7528c42, type: 3}
   coinValue: 100
 --- !u!82 &993440703457370889
 AudioSource:

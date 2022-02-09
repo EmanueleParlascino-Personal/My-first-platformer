@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject Bullet;
 
     [SerializeField] GameObject Gun;
+
+    [SerializeField] AudioClip deathSound;
     Animator myAnimator;
     BoxCollider2D feet;
     CapsuleCollider2D myCollider;
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     float transitionTime;
 
     float startGravity;
+
+    int deathDelay = 7;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -122,12 +126,20 @@ public class PlayerMovement : MonoBehaviour
         if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
         {
             isAlive = false;
-            myAnimator.SetTrigger("Die");
-            myRigidbody.gravityScale = 10;
-            myRigidbody.velocity += new Vector2(-jumpForce, jumpForce);
-            GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.22f);
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            StartCoroutine(DeathRoutine());    
         }
+    }
+
+    IEnumerator DeathRoutine()
+    {
+        Debug.Log("Stared Coroutine");
+        myAnimator.SetTrigger("Die");
+        myRigidbody.gravityScale = 10;
+        myRigidbody.velocity += new Vector2(-jumpForce, jumpForce);
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.22f);
+        yield return new WaitForSecondsRealtime(deathDelay);
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
     }
 
     
